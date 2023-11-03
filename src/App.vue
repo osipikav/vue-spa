@@ -1,6 +1,6 @@
 <template>
   <div class="post">
-    <post-form />
+    <post-form @create="createPost" />
     <post-list :posts="posts" />
   </div>
 </template>
@@ -8,28 +8,27 @@
 <script>
 import PostForm from './components/PostForm.vue';
 import PostList from './components/PostList.vue';
+
 export default {
-  components: { PostList, PostForm },
+  components: {
+    PostList,
+    PostForm,
+  },
+
   data() {
     return {
       posts: [
         { id: 1, title: 'title 1', body: 'description 1' },
         { id: 2, title: 'title 2', body: 'description 2' },
+        { id: 3, title: 'title 3', body: 'description 3' },
+        { id: 4, title: 'title 4', body: 'description 4' },
       ],
-      title: '',
-      body: '',
     };
   },
+
   methods: {
-    CreatePost() {
-      const newPost = {
-        id: Date.now,
-        title: this.title,
-        body: this.body,
-      };
-      this.posts.push(newPost);
-      this.title = '';
-      this.body = '';
+    createPost(post) {
+      this.posts.push(post);
     },
   },
 };
