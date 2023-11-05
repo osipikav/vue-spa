@@ -3,12 +3,15 @@
     <h3>post creation</h3>
     <input v-model="post.title" type="text" placeholder="name" />
     <input v-model="post.body" type="text" placeholder="description" />
-    <button class="btn" @click="CreatePost">create</button>
+    <my-button class="btn" @click="CreatePost">create</my-button>
   </form>
 </template>
 
 <script>
+import MyButton from './UI/MyButton.vue';
+
 export default {
+  components: { MyButton },
   data() {
     return {
       post: {
@@ -32,8 +35,5 @@ export default {
 form {
   display: flex;
   flex-direction: column;
-}
-.btn {
-  background-color: brown;
 }
 </style>

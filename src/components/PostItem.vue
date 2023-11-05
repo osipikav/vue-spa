@@ -2,15 +2,25 @@
   <div class="post-item">
     {{ post.title }}
     {{ post.body }}
+    <my-button @click="DeletePost">delete</my-button>
   </div>
 </template>
 
 <script>
+import MyButton from './UI/MyButton.vue';
 export default {
+  components: {
+    MyButton,
+  },
   props: {
     post: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    DeletePost() {
+      console.log('this.event.target');
     },
   },
 };
@@ -20,5 +30,8 @@ export default {
 .post-item {
   background-color: aqua;
   margin: 10px 0;
+}
+button {
+  margin: 5px;
 }
 </style>
