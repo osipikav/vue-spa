@@ -8,10 +8,7 @@
 </template>
 
 <script>
-import MyButton from './UI/MyButton.vue';
-
 export default {
-  components: { MyButton },
   data() {
     return {
       post: {
@@ -24,8 +21,10 @@ export default {
     CreatePost() {
       this.post.id = Date.now();
       this.$emit('create', this.post);
-      this.title = '';
-      this.body = '';
+      this.post = {
+        title: '',
+        body: '',
+      };
     },
   },
 };
